@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lista de Acesso - Heimdall</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Lista de Acesso Autorizado</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>ID RFID</th>
+        <th>Matrícula</th>
+      </tr>
+    </thead>
+    <tbody id="tabela-corpo">
+      <!-- Dados serão inseridos aqui dinamicamente -->
+    </tbody>
+  </table>
+
+  <script>
+    // Simulação de dados (pode vir do backend depois)
+    const dados = [
+      { nome: "Amanda", rfid: "aaaaaaaaa", matricula: "xxxxxxxxxxx" },
+      { nome: "Raquel", rfid: "bbbbbbbbb", matricula: "zzzzzzzzzzz" },
+      { nome: "Amanda", rfid: "aaaaaaaaa", matricula: "xxxxxxxxxxx" },
+      { nome: "Raquel", rfid: "bbbbbbbbb", matricula: "zzzzzzzzzzz" },
+      { nome: "Amanda", rfid: "aaaaaaaaa", matricula: "xxxxxxxxxxx" },
+      { nome: "Raquel", rfid: "bbbbbbbbb", matricula: "zzzzzzzzzzz" },
+    ];
+
+    const tbody = document.getElementById('tabela-corpo');
+    dados.forEach(pessoa => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${pessoa.nome}</td>
+        <td>${pessoa.rfid}</td>
+        <td>${pessoa.matricula}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  </script>
+</body>
+</html>

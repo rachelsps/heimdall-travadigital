@@ -1,0 +1,88 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1f252f;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #e8f1f9;
+}
+
+
+
+  h1 {
+    color: #975ac9; 
+    margin-bottom: 20px;
+  }  
+
+form {
+  background-color: #e8f1f9;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 300px;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #57449a;
+  border-radius: 6px;
+  color: #1f252f;
+  background-color: #ffffff;
+}
+
+button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #57449a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #d9d7ef;
+  color: #1f252f;
+}
+
+/* lista */
+
+table {
+  width: 90%;
+  max-width: 800px;
+  margin-top: 30px;
+  border-collapse: collapse;
+  background-color: #e8f1f9;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+th, td {
+  padding: 15px 20px;
+  text-align: left;
+  color: #1f252f;
+}
+
+thead {
+  background-color: #57449a;
+  color: white;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f0f3f7;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+
+/* lista fim */
+

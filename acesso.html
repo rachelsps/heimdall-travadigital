@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Acesso Restrito - Heimdall</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Acesso Heimdall</h1>
+  <form id="acessoForm">
+    <input type="password" name="senha" placeholder="Digite a senha" required />
+    <button type="submit">Entrar</button>
+  </form>
+
+  <script>
+    document.getElementById('acessoForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+
+      fetch('/verificar-senha', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.acessoLiberado) {
+          window.location.href = '/lista.html';
+        } else {
+          alert('Senha incorreta!');
+        }
+      })
+      .catch(() => alert('Erro ao conectar com o servidor.'));
+    });
+  </script>
+</body>
+</html>

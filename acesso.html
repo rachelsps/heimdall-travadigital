@@ -6,30 +6,25 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Acesso Heimdall</h1>
-  <form id="acessoForm">
-    <input type="password" name="senha" placeholder="Digite a senha" required />
-    <button type="submit">Entrar</button>
-  </form>
+  <div class="container">
+    <h1>Acesso Heimdall</h1>
+    <form id="acessoForm">
+      <input type="password" name="senha" placeholder="Digite a senha" required />
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
 
   <script>
     document.getElementById('acessoForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      const formData = new FormData(e.target);
+      const senha = e.target.senha.value;
 
-      fetch('/verificar-senha', {
-        method: 'POST',
-        body: formData
-      })
-      .then(res => res.json())
-      .then(data => {
-        if (data.acessoLiberado) {
-          window.location.href = '/lista.html';
-        } else {
-          alert('Senha incorreta!');
-        }
-      })
-      .catch(() => alert('Erro ao conectar com o servidor.'));
+      // Senha fixa
+      if (senha === '1234') {
+        window.location.href = 'lista.html';
+      } else {
+        alert('Senha incorreta!');
+      }
     });
   </script>
 </body>

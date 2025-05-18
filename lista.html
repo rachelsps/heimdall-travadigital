@@ -18,19 +18,19 @@
       </tr>
     </thead>
     <tbody id="tabela-corpo">
-      <!-- Dados serão inseridos aqui dinamicamente -->
+      
     </tbody>
   </table>
 
   <script>
     // Simulação de dados (pode vir do backend depois)
     const dados = [
-      { nome: "Amanda", rfid: "aaaaaaaaa", matricula: "xxxxxxxxxxx" },
-      { nome: "Raquel", rfid: "bbbbbbbbb", matricula: "zzzzzzzzzzz" },
-      { nome: "Amanda", rfid: "aaaaaaaaa", matricula: "xxxxxxxxxxx" },
-      { nome: "Raquel", rfid: "bbbbbbbbb", matricula: "zzzzzzzzzzz" },
-      { nome: "Amanda", rfid: "aaaaaaaaa", matricula: "xxxxxxxxxxx" },
-      { nome: "Raquel", rfid: "bbbbbbbbb", matricula: "zzzzzzzzzzz" },
+      { nome: "Amanda", uid: "aaaaaaaaa", matricula: "xxxxxxxxxxx" },
+      { nome: "Raquel", uid: "bbbbbbbbb", matricula: "zzzzzzzzzzz" },
+      { nome: "Amanda", uid: "aaaaaaaaa", matricula: "xxxxxxxxxxx" },
+      { nome: "Raquel", uid: "bbbbbbbbb", matricula: "zzzzzzzzzzz" },
+      { nome: "Amanda", uid: "aaaaaaaaa", matricula: "xxxxxxxxxxx" },
+      { nome: "Raquel", uid: "bbbbbbbbb", matricula: "zzzzzzzzzzz" },
     ];
 
     const tbody = document.getElementById('tabela-corpo');
@@ -38,7 +38,7 @@
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td>${pessoa.nome}</td>
-        <td>${pessoa.rfid}</td>
+        <td>${pessoa.uid}</td>
         <td>${pessoa.matricula}</td>
       `;
       tbody.appendChild(tr);

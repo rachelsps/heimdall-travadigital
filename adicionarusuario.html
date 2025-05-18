@@ -6,20 +6,20 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="addusuario">
-    <h1>Adicionar Usuário</h1>
-    <a action="/adicionar-usuario" method="post">
-        <label for="nome">Nome:</label><br>
-        <input type="text" id="nome" name="nome" required><br><br>
+  <h1>Adicionar Usuário</h1>
+    <form id="formAdicionar">
+  <label for="nome">Nome:</label>
+  <input type="text" id="nome" name="nome" required>
 
-        <label for="UserID">UserID:</label><br>
-        <input type="UserId" id="UserID" name="UserID" required><br><br>
-        <label for="Matricula">Matricula:</label><br>
-        <input type="Matricula" id="Matricula" name="Matricula" required><br><br>
+  <label for="UserID">User ID:</label>
+  <input type="text" id="UserID" name="UserID" required>
 
-        <button onclick="window.location.href='lista.html'">Adicionar Usuario</button>
-    
-    </a>
-</div>
+  <label for="Matricula">Matrícula:</label>
+  <input type="text" id="Matricula" name="Matricula" required>
 
+   <button onclick="window.location.href='lista.html'">Concluir</button>
+
+</form>
+</body>
 </html>
+

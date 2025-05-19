@@ -66,6 +66,22 @@ button:hover {
   transform: scale(1.02);
 }
 
+.editar-btn {
+  padding: 10px;
+  background-color: #57449a;;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.editar-btn:hover {
+  background-color: #d9d7ef;
+  color: #1f252f;
+  transform: scale(1.02);
+}
+
 table {
   width: 95%;
   max-width: 900px;
@@ -80,7 +96,7 @@ table {
 
 th, td {
   padding: 20px 24px;
-  text-align: left;
+  text-align: center;
   color: #1f252f;
   font-size: 18px;
 }
@@ -121,3 +137,4 @@ tbody tr:nth-child(even) {
 #formAdicionar button {
   margin-top: 20px;
 }
+

@@ -15,6 +15,8 @@
         <th>Nome</th>
         <th>User ID</th>
         <th>Matrícula</th>
+        <th>Ações</th>
+
       </tr>
     </thead>
     <tbody id="tabela-corpo">
@@ -40,9 +42,11 @@
         <td>${pessoa.nome}</td>
         <td>${pessoa.uid}</td>
         <td>${pessoa.matricula}</td>
-      `;
+        <td><button type="button" class="editar-btn">Editar Usuário</button></td>
+        `;
       tbody.appendChild(tr);
     });
+    
   </script>
    <!-- Botões -->
    <div style="margin-bottom: 20px;">

@@ -7,7 +7,7 @@
 </head>
 
 <body>
-  <h1>Lista de Acesso Autorizado</h1>
+  <h1>Lista de Acessos Autorizados</h1>
   <table>
   
     <thead>
@@ -24,37 +24,12 @@
     </tbody>
   </table>
 
-  <script>
-    // Simulação de dados (pode vir do backend depois)
-    const dados = [
-      { nome: "Amanda", uid: "aaaaaaaaa", matricula: "xxxxxxxxxxx" },
-      { nome: "Raquel", uid: "bbbbbbbbb", matricula: "zzzzzzzzzzz" },
-      { nome: "Amanda", uid: "aaaaaaaaa", matricula: "xxxxxxxxxxx" },
-      { nome: "Raquel", uid: "bbbbbbbbb", matricula: "zzzzzzzzzzz" },
-      { nome: "Amanda", uid: "aaaaaaaaa", matricula: "xxxxxxxxxxx" },
-      { nome: "Raquel", uid: "bbbbbbbbb", matricula: "zzzzzzzzzzz" },
-    ];
-
-    const tbody = document.getElementById('tabela-corpo');
-    dados.forEach(pessoa => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td>${pessoa.nome}</td>
-        <td>${pessoa.uid}</td>
-        <td>${pessoa.matricula}</td>
-        <td><button type="button" class="editar-btn">Editar Usuário</button></td>
-        `;
-      tbody.appendChild(tr);
-    });
-    
-  </script>
-   <!-- Botões -->
    <div style="margin-bottom: 20px;">
-    <button onclick="window.location.href='acesso.html'">Sair</button>
-    <button onclick="window.location.href='adicionarusuario.html'">Adicionar Usuario</button>
+    <button id="sair-btn">Sair</button>
+    <button onclick="window.location.href='adicionarusuario.html'">Adicionar Usuário</button>
   </div>
 
-
-
+  <script src="dadosTemp.js"></script>
+  <script src="lista.js"></script>
 </body>
 </html>

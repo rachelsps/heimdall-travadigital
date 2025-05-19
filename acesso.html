@@ -14,19 +14,7 @@
     </form>
   </div>
 
-  <script>
-    document.getElementById('acessoForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const senha = e.target.senha.value;
-
-      // Senha fixa
-      if (senha === '1234') {
-        window.location.href = 'lista.html';
-      } else {
-        alert('Senha incorreta!');
-      }
-    });
-  </script>
+   <script src="acesso.js"></script>
   
 </body>
 </html>

@@ -66,7 +66,7 @@ button:hover {
   transform: scale(1.02);
 }
 
-.editar-btn {
+.editar-btn,.excluir-btn {
   padding: 10px;
   background-color: #57449a;;
   border: none;
@@ -77,6 +77,12 @@ button:hover {
 }
 
 .editar-btn:hover {
+  background-color: #d9d7ef;
+  color: #1f252f;
+  transform: scale(1.02);
+}
+
+.excluir-btn:hover {
   background-color: #d9d7ef;
   color: #1f252f;
   transform: scale(1.02);

@@ -1,4 +1,6 @@
-document.getElementById("formAdicionar").addEventListener("submit", function (e) {
+import { db, collection, addDoc } from './dadostemp.js';
+
+document.getElementById("formAdicionar").addEventListener("submit", async function (e) {
   e.preventDefault();
 
   const nome = document.getElementById("nome").value.trim();
@@ -10,11 +12,15 @@ document.getElementById("formAdicionar").addEventListener("submit", function (e)
     return;
   }
 
-  const novosDados = { nome, uid, matricula };
-  const usuarios = obterUsuarios();
-
-  usuarios.push(novosDados);
-  salvarUsuarios(usuarios);
-
+  try {
+    await addDoc(collection(db, "usuarios"), {
+      nome: nome,
+      uid: uid,
+      matricula: matricula
+    });
     window.location.href = "lista.html";
-  });
+  } catch (error) {
+    console.error("Erro ao adicionar usuário:", error);
+    alert("Erro ao salvar. Veja o console.");
+  }
+});

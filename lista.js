@@ -1,9 +1,14 @@
-const tbody = document.getElementById("tabela-corpo");
-let usuarios = obterUsuarios();
+import { db, collection, getDocs, updateDoc, deleteDoc, doc } from './dadostemp.js';
 
-function renderizarTabela() {
+const tbody = document.getElementById("tabela-corpo");
+
+async function carregarUsuarios() {
   tbody.innerHTML = "";
-  usuarios.forEach((pessoa, index) => {
+  const querySnapshot = await getDocs(collection(db, "usuarios"));
+  querySnapshot.forEach((documento) => {
+    const pessoa = documento.data();
+    const id = documento.id;
+
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td>${pessoa.nome}</td>
@@ -16,37 +21,49 @@ function renderizarTabela() {
     `;
     tbody.appendChild(tr);
 
-    tr.querySelector(".editar-btn").addEventListener("click", () => editar(index));
-    tr.querySelector(".excluir-btn").addEventListener("click", () => excluir(index));
+    tr.querySelector(".editar-btn").addEventListener("click", () => editarUsuario(id, pessoa));
+    tr.querySelector(".excluir-btn").addEventListener("click", () => excluirUsuario(id));
   });
 }
 
-function editar(index) {
-  const novoNome = prompt("Novo nome:", usuarios[index].nome);
-  const novaMatricula = prompt("Nova matrícula:", usuarios[index].matricula);
+async function editarUsuario(id, dados) {
+  const novoNome = prompt("Novo nome:", dados.nome);
+  const novaMatricula = prompt("Nova matrícula:", dados.matricula);
 
   if (novoNome && novaMatricula) {
-    usuarios[index].nome = novoNome.trim();
-    usuarios[index].matricula = novaMatricula.trim();
-    salvarUsuarios(usuarios);
-    alert("Informações atualizadas com sucesso!");
-    renderizarTabela();
+    try {
+      await updateDoc(doc(db, "usuarios", id), {
+        nome: novoNome.trim(),
+        matricula: novaMatricula.trim()
+      });
+      alert("Atualizado com sucesso!");
+      carregarUsuarios();
+    } catch (error) {
+      console.error("Erro ao atualizar:", error);
+    }
   }
 }
 
-function excluir(index) {
+async function excluirUsuario(id) {
   if (confirm("Tem certeza que deseja excluir este usuário?")) {
-    usuarios.splice(index, 1);
-    salvarUsuarios(usuarios);
-    renderizarTabela();
+    try {
+      await deleteDoc(doc(db, "usuarios", id));
+      carregarUsuarios();
+    } catch (error) {
+      console.error("Erro ao excluir:", error);
+    }
   }
 }
 
-// Botão "Sair" com confirmação
 document.getElementById("sair-btn").addEventListener("click", () => {
   if (confirm("Tem certeza que deseja sair?")) {
     window.location.href = "acesso.html";
   }
 });
 
-renderizarTabela();
+document.getElementById("adicionar-btn").addEventListener("click", () => {
+  window.location.href = "adicionarusuario.html";
+});
+
+
+carregarUsuarios();

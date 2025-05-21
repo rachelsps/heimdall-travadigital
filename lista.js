@@ -4,11 +4,20 @@ const tbody = document.getElementById("tabela-corpo");
 
 async function carregarUsuarios() {
   tbody.innerHTML = "";
-  const querySnapshot = await getDocs(collection(db, "usuarios"));
-  querySnapshot.forEach((documento) => {
-    const pessoa = documento.data();
-    const id = documento.id;
 
+  const querySnapshot = await getDocs(collection(db, "usuarios"));
+  
+  
+  const usuarios = [];
+  querySnapshot.forEach((doc) => {
+    usuarios.push({ id: doc.id, ...doc.data() });
+  });
+
+  
+  usuarios.sort((a, b) => a.nome.toLowerCase().localeCompare(b.nome.toLowerCase()));
+
+  
+  usuarios.forEach((pessoa) => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td>${pessoa.nome}</td>
@@ -21,10 +30,11 @@ async function carregarUsuarios() {
     `;
     tbody.appendChild(tr);
 
-    tr.querySelector(".editar-btn").addEventListener("click", () => editarUsuario(id, pessoa));
-    tr.querySelector(".excluir-btn").addEventListener("click", () => excluirUsuario(id));
+    tr.querySelector(".editar-btn").addEventListener("click", () => editarUsuario(pessoa.id, pessoa));
+    tr.querySelector(".excluir-btn").addEventListener("click", () => excluirUsuario(pessoa.id));
   });
 }
+
 
 async function editarUsuario(id, dados) {
   const novoNome = prompt("Novo nome:", dados.nome);

@@ -9,13 +9,15 @@
   <h1>Adicionar Usuário</h1>
     <form id="formAdicionar">
   <label for="nome">Nome:</label>
-  <input type="text" id="nome" name="nome" required>
+  <input type="text" id="nome" name="nome" pattern="^[A-Za-zÀ-ÿ\s]+$" title="Apenas letras e espaços são permitidos" required>
+
 
   <label for="UserID">User ID:</label>
-  <input type="text" id="UserID" name="UserID" required>
+  <input type="text" id="UserID" name="UserID" pattern="\d+" title="Apenas números são permitidos" required>
 
   <label for="Matricula">Matrícula:</label>
-  <input type="text" id="Matricula" name="Matricula" required>
+ <input type="text" id="Matricula" name="Matricula" pattern="\d+" title="Apenas números são permitidos" required>
+
 
    <button type="submit">Concluir</button>
 </form>
